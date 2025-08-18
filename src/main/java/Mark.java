@@ -1,20 +1,28 @@
 import java.util.Scanner;
 
 public class Mark {
-    public static void main(String[] args) {
+    static TaskList taskList;
 
+    public static void main(String[] args) {
+        taskList = new TaskList();
+        Scanner sc = new Scanner(System.in);
         Message.intro();
 
         while(true) {
-            Scanner sc = new Scanner(System.in);
             String msg = sc.nextLine();
-            if (msg.equals("bye")) {
-                break;
-            }
-            Message.print(msg);
-        }
 
-        Message.bye();
+            switch (msg) {
+                case "bye":
+                    Message.bye();
+                    return;
+                case "list":
+                    taskList.list();
+                    break;
+                default:
+                    taskList.add(msg);
+                    break;
+            }
+        }
     }
 }
 
