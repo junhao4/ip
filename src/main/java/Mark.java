@@ -10,6 +10,13 @@ public class Mark {
 
         while(true) {
             String msg = sc.nextLine();
+            if (msg.startsWith("mark")) {
+                taskList.mark(msg.substring(5));
+                continue;
+            } else if (msg.startsWith("unmark")) {
+                taskList.unmark(msg.substring(7));
+                continue;
+            }
 
             switch (msg) {
                 case "bye":
