@@ -7,11 +7,38 @@ public class TaskList {
         this.taskList = new ArrayList<>();
     }
 
-    public void add(String task) {
-        taskList.add(new Task(task));
-        Message.println("added: " + task);
+    public void addTodo(String task) {
+        Task newTask = new TodoTask(task);
+        taskList.add(newTask);
+        add(newTask);
     }
 
+    public void addDeadline(String task, String deadline) {
+        Task newTask = new DeadlineTask(task, deadline);
+        taskList.add(newTask);
+        add(newTask);
+    }
+
+    public void addEvent(String task, String from, String to) {
+        Task newTask = new EventTask(task, from, to);
+        taskList.add(newTask);
+        add(newTask);
+    }
+
+    private void add(Task task) {
+        Message.print("     Got it. I've added this task:\n" +
+                "       " + task.toString() + "\n" +
+                "     Now you have " + taskCount() + " in the list.\n");
+    }
+
+    private String taskCount() {
+        int count = taskList.size();
+        if (count == 1) {
+            return count + " task";
+        } else {
+            return count + " tasks";
+        }
+    }
 
     public void list() {
         if (taskList.isEmpty()) {

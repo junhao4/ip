@@ -16,6 +16,18 @@ public class Mark {
             } else if (msg.startsWith("unmark")) {
                 taskList.unmark(msg.substring(7));
                 continue;
+            } else if (msg.startsWith("todo")) {
+                taskList.addTodo(msg.substring(5));
+                continue;
+            } else if (msg.startsWith("deadline")) {
+                String[] parts = msg.substring(9).split("/by ", 2);
+                taskList.addDeadline(parts[0].trim(), parts[1]);
+                continue;
+            } else if (msg.startsWith("event")) {
+                String[] parts = msg.substring(6).split("/from ", 2);
+                String[] dates = parts[1].split("/to ", 2);
+                taskList.addEvent(parts[0].trim(), dates[0].trim(), dates[1]);
+                continue;
             }
 
             switch (msg) {
@@ -26,7 +38,7 @@ public class Mark {
                     taskList.list();
                     break;
                 default:
-                    taskList.add(msg);
+                    Message.error();
                     break;
             }
         }

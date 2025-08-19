@@ -20,6 +20,13 @@ public class Message {
         );
     }
 
+    public static void error() {
+        System.out.println(
+                Message.line("     OOPS!!! I'm sorry, but I don't know what that means :-(\n")
+        );
+    }
+
+
     public static void println(String msg) {
         System.out.println(
                 Message.line("     " + msg + "\n")
