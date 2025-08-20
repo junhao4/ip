@@ -1,0 +1,11 @@
+list
+todo read book
+deadline return book /by Sunday
+event go to school /from 9am /to 5pm
+list
+mark 1
+mark 3
+list
+unmark 1
+list
+bye
