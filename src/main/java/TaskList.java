@@ -7,6 +7,10 @@ public class TaskList {
         this.taskList = new ArrayList<>();
     }
 
+    public boolean isValidIndex(int index) {
+        return index <= taskList.size();
+    }
+
     public void addTodo(String task) {
         Task newTask = new TodoTask(task);
         taskList.add(newTask);
@@ -68,6 +72,13 @@ public class TaskList {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.unmark();
         Message.print("      OK, I've marked this task as not done yet:\n" +
+                "       " + task.toString() + "\n");
+    }
+
+    public void delete(String indexString) {
+        Task task = taskList.get(Integer.parseInt(indexString) - 1);
+        taskList.remove(task);
+        Message.print("      OK, I've deleted this task:\n" +
                 "       " + task.toString() + "\n");
     }
 

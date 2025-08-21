@@ -21,9 +21,7 @@ public class Message {
     }
 
     public static void error() {
-        System.out.println(
-                Message.line("     OOPS!!! I'm sorry, but I don't know what that means :-(\n")
-        );
+        Message.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
     }
 
 

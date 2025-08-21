@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
+public class UnknownCommandException extends MarkExceptions {
 
-public class UnknownCommandException {
+    public UnknownCommandException() {
+        super("OOPS!!! I'm sorry, but I don't know what that means :-(");
+    }
 }

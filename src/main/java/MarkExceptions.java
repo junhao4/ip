@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
+public class MarkExceptions extends Exception {
 
-public class MarkExceptions {
+    public MarkExceptions(String msg) {
+        super(msg);
+    }
 }
