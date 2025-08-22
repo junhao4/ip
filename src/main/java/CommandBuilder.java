@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
-
-public class CommandBuilder {
+public interface CommandBuilder {
+    public Command create(String arg, TaskList taskList);
 }

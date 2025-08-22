@@ -1,4 +1,10 @@
-package PACKAGE_NAME;
+public class ListCommand extends Command {
 
-public class ListCommand {
+    public ListCommand(String arg, TaskList tasklist) {
+        super(arg, tasklist);
+    }
+
+    public void execute() throws MarkExceptions {
+        taskList.list();
+    }
 }

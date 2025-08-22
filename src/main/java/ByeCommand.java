@@ -1,4 +1,11 @@
-package PACKAGE_NAME;
+public class ByeCommand extends Command {
 
-public class ByeCommand {
+    public ByeCommand(String arg, TaskList tasklist) {
+        super(arg, tasklist);
+    }
+
+    public void execute() throws MarkExceptions {
+        Message.bye();
+        System.exit(0);
+    }
 }

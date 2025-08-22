@@ -1,4 +1,11 @@
-package PACKAGE_NAME;
+public abstract class Command {
+    String arg;
+    TaskList taskList;
 
-public class Command {
+    public Command(String arg, TaskList tasklist) {
+        this.arg = arg;
+        this.taskList = tasklist;
+    }
+
+    public abstract void execute() throws MarkExceptions;
 }
