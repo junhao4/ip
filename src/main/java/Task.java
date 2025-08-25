@@ -15,6 +15,8 @@ public abstract class Task {
         this.completed = false;
     }
 
+    public abstract void store();
+
     @Override
     public String toString() {
         String result = "";
