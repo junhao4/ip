@@ -7,6 +7,10 @@ public class TaskList {
         this.taskList = new ArrayList<>();
     }
 
+    public TaskList(ArrayList<Task> taskList) {
+        this.taskList = taskList;
+    }
+
     public boolean isValidIndex(int index) {
         return index <= taskList.size();
     }
@@ -80,6 +84,15 @@ public class TaskList {
         taskList.remove(task);
         Message.print("      OK, I've deleted this task:\n" +
                 "       " + task.toString() + "\n");
+    }
+
+    public String save() {
+        StringBuilder str = new StringBuilder();
+        for (Task i : taskList) {
+            str.append(i.save())
+                    .append("\n");
+        }
+        return str.toString();
     }
 
 }

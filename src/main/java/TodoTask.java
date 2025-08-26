@@ -4,10 +4,14 @@ public class TodoTask extends Task {
         super(name);
     }
 
+    public TodoTask(String name, boolean isCompleted) {
+        super(name, isCompleted);
+    }
+
     @Override
-    public void store() {
-	StringBuilder taskString = new StringBuilder();
-	taskString.append(this.name.length());
+    public String save() {
+       return super.save() + "T";
+    }
 
     @Override
     public String toString() {
