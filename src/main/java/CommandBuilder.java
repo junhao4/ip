@@ -1,3 +1,3 @@
 public interface CommandBuilder {
-    public Command create(String arg, TaskList taskList);
+    public Command build(String arg, TaskList taskList);
 }

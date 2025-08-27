@@ -7,5 +7,10 @@ public abstract class Command {
         this.taskList = tasklist;
     }
 
+    public void executeAndSave(Storage storage) throws MarkExceptions {
+        this.execute();
+        storage.save(taskList);
+    }
+
     public abstract void execute() throws MarkExceptions;
 }
