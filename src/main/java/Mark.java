@@ -1,10 +1,9 @@
 import Command.Command;
 import Exceptions.MarkExceptions;
+import InputHandler.InputHandler;
 import Ui.Ui;
 import Storage.Storage;
 import Task.TaskList;
-
-import java.util.Scanner;
 
 public class Mark {
     private TaskList taskList;

@@ -1,3 +1,5 @@
+package InputHandler;
+
 import Command.Command;
 import Command.Commands;
 import Exceptions.MarkExceptions;
