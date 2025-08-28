@@ -1,3 +1,9 @@
+package Task;
+
+import Message.Message;
+import Exceptions.MarkExceptions;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TaskList {
@@ -21,13 +27,13 @@ public class TaskList {
         add(newTask);
     }
 
-    public void addDeadline(String task, String deadline) {
+    public void addDeadline(String task, LocalDate deadline) {
         Task newTask = new DeadlineTask(task, deadline);
         taskList.add(newTask);
         add(newTask);
     }
 
-    public void addEvent(String task, String from, String to) {
+    public void addEvent(String task, LocalDate from, LocalDate to) {
         Task newTask = new EventTask(task, from, to);
         taskList.add(newTask);
         add(newTask);

@@ -1,3 +1,9 @@
+package Command;
+
+import Exceptions.InvalidIndexException;
+import Exceptions.MarkExceptions;
+import Task.TaskList;
+
 public class DeleteCommand extends Command {
 
     public DeleteCommand(String arg, TaskList tasklist) {

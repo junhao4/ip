@@ -1,3 +1,14 @@
+package Command;
+
+import Exceptions.EmptyDescriptionException;
+import Exceptions.InvalidArgumentException;
+import Exceptions.InvalidDateException;
+import Exceptions.MarkExceptions;
+import Task.TaskList;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 public class DeadlineCommand extends Command {
 
     public DeadlineCommand(String arg, TaskList tasklist) {
@@ -19,6 +30,12 @@ public class DeadlineCommand extends Command {
             throw new InvalidArgumentException("Deadline task requires /by [DATE]");
         }
 
-        taskList.addDeadline(parts[0].trim(), parts[1]);
+        try {
+            LocalDate deadline = LocalDate.parse(parts[1]);
+            taskList.addDeadline(parts[0].trim(), deadline);
+        } catch (DateTimeParseException e) {
+            throw new InvalidDateException();
+        }
+
     }
 }

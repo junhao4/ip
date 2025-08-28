@@ -1,9 +1,9 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import Command.Command;
+import Exceptions.MarkExceptions;
+import Message.Message;
+import Storage.Storage;
+import Task.TaskList;
+
 import java.util.Scanner;
 
 public class Mark {
@@ -16,7 +16,6 @@ public class Mark {
         taskList = new TaskList(storage.load());
 
         Message.intro();
-
 
         while(sc.hasNext()) {
             String msg = sc.nextLine();

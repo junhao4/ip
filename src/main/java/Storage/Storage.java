@@ -1,6 +1,15 @@
+package Storage;
+
+import Task.Task;
+import Task.TaskList;
+import Task.TodoTask;
+import Task.DeadlineTask;
+import Task.EventTask;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Storage {
@@ -42,10 +51,10 @@ public class Storage {
                     taskList.add(new TodoTask(name, Boolean.parseBoolean(parts[0])));
                     break;
                 case "D":
-                    taskList.add(new DeadlineTask(name, Boolean.parseBoolean(parts[0]), parts[2]));
+                    taskList.add(new DeadlineTask(name, Boolean.parseBoolean(parts[0]), LocalDate.parse(parts[2])));
                     break;
                 case "E":
-                    taskList.add(new EventTask(name, Boolean.parseBoolean(parts[0]), parts[2], parts[3]));
+                    taskList.add(new EventTask(name, Boolean.parseBoolean(parts[0]), LocalDate.parse(parts[2]), LocalDate.parse(parts[3])));
                     break;
                 }
 

@@ -1,3 +1,14 @@
+package Command;
+
+import Exceptions.EmptyDescriptionException;
+import Exceptions.InvalidArgumentException;
+import Exceptions.InvalidDateException;
+import Exceptions.MarkExceptions;
+import Task.TaskList;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 public class EventCommand extends Command {
 
     public EventCommand(String arg, TaskList tasklist) {
@@ -24,6 +35,13 @@ public class EventCommand extends Command {
             throw new InvalidArgumentException("Deadline task requires /to [DATE]");
         }
 
-        taskList.addEvent(parts[0].trim(), dates[0].trim(), dates[1]);
+        try {
+            LocalDate from = LocalDate.parse(dates[0].trim());
+            LocalDate to = LocalDate.parse(dates[1]);
+            taskList.addEvent(parts[0].trim(), from, to);
+        } catch (DateTimeParseException e) {
+            throw new InvalidDateException();
+        }
+
     }
 }

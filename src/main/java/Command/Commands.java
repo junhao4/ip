@@ -1,3 +1,7 @@
+package Command;
+
+import Task.TaskList;
+
 public enum Commands {
     MARK(MarkCommand::new),
     UNMARK(UnmarkCommand::new),
