@@ -1,3 +1,5 @@
+package Mark;
+
 import Command.Command;
 import Exceptions.MarkExceptions;
 import InputHandler.InputHandler;
@@ -12,7 +14,7 @@ public class Mark {
 
     public Mark() {
         ui = new Ui();
-        storage = new Storage("./data", "./data/Mark.txt");
+        storage = new Storage("./data", "./data/Mark.Mark.txt");
         taskList = new TaskList(storage.load());
     }
 
