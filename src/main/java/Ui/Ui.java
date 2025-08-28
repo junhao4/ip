@@ -1,7 +1,18 @@
-package Message;
+package Ui;
 
-public class Message {
+import java.util.Scanner;
+
+public class Ui {
+    private Scanner sc;
     private final static String LINE = "    ____________________________________________________________\n";
+
+    public Ui() {
+        this.sc = new Scanner(System.in);
+    }
+
+    public String readCommand() {
+        return sc.nextLine();
+    }
 
     public static String line(String msg) {
         return LINE + msg + LINE;
@@ -9,7 +20,7 @@ public class Message {
 
     public static void intro() {
         System.out.println(
-            Message.line(
+            Ui.line(
             "     Hello! I'm Mark\n" +
                  "     What can I do for you?\n"
             )
@@ -18,24 +29,24 @@ public class Message {
 
     public static void bye() {
         System.out.println(
-                Message.line("     Bye. Hope to see you again soon!\n")
+                Ui.line("     Bye. Hope to see you again soon!\n")
         );
     }
 
     public static void error() {
-        Message.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
+        Ui.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
     }
 
 
     public static void println(String msg) {
         System.out.println(
-                Message.line("     " + msg + "\n")
+                Ui.line("     " + msg + "\n")
         );
     }
 
     public static void print(String msg) {
         System.out.println(
-                Message.line(msg)
+                Ui.line(msg)
         );
     }
 }

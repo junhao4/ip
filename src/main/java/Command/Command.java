@@ -18,5 +18,9 @@ public abstract class Command {
         storage.save(taskList);
     }
 
+    public boolean isExit() {
+        return false;
+    }
+
     public abstract void execute() throws MarkExceptions;
 }

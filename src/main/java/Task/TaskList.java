@@ -1,7 +1,6 @@
 package Task;
 
-import Message.Message;
-import Exceptions.MarkExceptions;
+import Ui.Ui;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class TaskList {
     }
 
     private void add(Task task) {
-        Message.print("     Got it. I've added this task:\n" +
+        Ui.print("     Got it. I've added this task:\n" +
                 "       " + task.toString() + "\n" +
                 "     Now you have " + taskCount() + " in the list.\n");
     }
@@ -56,7 +55,7 @@ public class TaskList {
 
     public void list() {
         if (taskList.isEmpty()) {
-            Message.println("Your list is empty.");
+            Ui.println("Your list is empty.");
             return;
         }
         StringBuilder listMessage = new StringBuilder(
@@ -68,27 +67,27 @@ public class TaskList {
                     .append(taskList.get(i).toString())
                     .append("\n");
         }
-        Message.print(listMessage.toString());
+        Ui.print(listMessage.toString());
     }
 
     public void mark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.mark();
-        Message.print("      Nice! I've marked this task as done:\n" +
+        Ui.print("      Nice! I've marked this task as done:\n" +
                 "       " + task.toString() + "\n");
     }
 
     public void unmark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.unmark();
-        Message.print("      OK, I've marked this task as not done yet:\n" +
+        Ui.print("      OK, I've marked this task as not done yet:\n" +
                 "       " + task.toString() + "\n");
     }
 
     public void delete(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         taskList.remove(task);
-        Message.print("      OK, I've deleted this task:\n" +
+        Ui.print("      OK, I've deleted this task:\n" +
                 "       " + task.toString() + "\n");
     }
 
