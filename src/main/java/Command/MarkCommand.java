@@ -21,4 +21,5 @@ public class MarkCommand extends Command {
 
         taskList.mark(arg);
     }
+
 }

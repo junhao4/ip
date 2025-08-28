@@ -14,7 +14,7 @@ public class Mark {
 
     public Mark() {
         ui = new Ui();
-        storage = new Storage("./data", "./data/Mark.Mark.txt");
+        storage = new Storage("./data", "./data/Mark.txt");
         taskList = new TaskList(storage.load());
     }
 

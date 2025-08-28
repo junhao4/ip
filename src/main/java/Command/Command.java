@@ -23,4 +23,9 @@ public abstract class Command {
     }
 
     public abstract void execute() throws MarkExceptions;
+
+    @Override
+    public String toString() {
+        return arg;
+    }
 }
