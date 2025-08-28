@@ -1,33 +1,42 @@
 import Command.Command;
 import Exceptions.MarkExceptions;
-import Message.Message;
+import Ui.Ui;
 import Storage.Storage;
 import Task.TaskList;
 
 import java.util.Scanner;
 
 public class Mark {
-    static TaskList taskList;
+    private TaskList taskList;
+    private Storage storage;
+    private Ui ui;
 
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        Storage storage = new Storage("./data", "./data/Mark.txt");
+    public Mark() {
+        ui = new Ui();
+        storage = new Storage("./data", "./data/Mark.txt");
         taskList = new TaskList(storage.load());
+    }
 
-        Message.intro();
+    public void run() {
+        Ui.intro();
 
-        while(sc.hasNext()) {
-            String msg = sc.nextLine();
-
+        boolean isExit = false;
+        while(!isExit) {
+            String msg = ui.readCommand();
             try {
                 Command c = InputHandler.handle(msg, taskList);
                 c.executeAndSave(storage);
+                isExit = c.isExit();
             } catch (MarkExceptions e) {
-                Message.println(e.getMessage());
+                Ui.println(e.getMessage());
             }
         }
     }
+
+    public static void main(String[] args) {
+        new Mark().run();
+    }
+
 }
 
 

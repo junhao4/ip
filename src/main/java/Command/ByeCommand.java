@@ -2,7 +2,7 @@ package Command;
 
 import Exceptions.MarkExceptions;
 import Task.TaskList;
-import Message.Message;
+import Ui.Ui;
 
 public class ByeCommand extends Command {
 
@@ -11,7 +11,12 @@ public class ByeCommand extends Command {
     }
 
     public void execute() throws MarkExceptions {
-        Message.bye();
+        Ui.bye();
         System.exit(0);
+    }
+
+    @Override
+    public boolean isExit() {
+        return true;
     }
 }
