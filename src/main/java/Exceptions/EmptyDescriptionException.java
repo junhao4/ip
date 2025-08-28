@@ -1,3 +1,5 @@
+package Exceptions;
+
 public class EmptyDescriptionException extends MarkExceptions {
 
     public EmptyDescriptionException(String task) {

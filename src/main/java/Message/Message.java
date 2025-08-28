@@ -1,3 +1,5 @@
+package Message;
+
 public class Message {
     private final static String LINE = "    ____________________________________________________________\n";
 
