@@ -38,8 +38,8 @@ public class Ui {
     public static void intro() {
         System.out.println(
             Ui.line(
-            "     Hello! I'm Mark\n" +
-                 "     What can I do for you?\n"
+            "     Hello! I'm Mark\n"
+                    + "     What can I do for you?\n"
             )
         );
     }
