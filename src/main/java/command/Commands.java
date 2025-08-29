@@ -10,7 +10,8 @@ public enum Commands {
     EVENT(EventCommand::new),
     LIST(ListCommand::new),
     DELETE(DeleteCommand::new),
-    BYE(ByeCommand::new);
+    BYE(ByeCommand::new),
+    FIND(FindCommand::new);
 
     private final CommandBuilder cmdBuilder;
 

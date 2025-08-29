@@ -100,4 +100,25 @@ public class TaskList {
         return str.toString();
     }
 
+    public void find(String string) {
+        StringBuilder listMessage = new StringBuilder(
+                "     Here are the matching tasks in your list:\n");
+        int count = 1;
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).toString().contains(string)) {
+                listMessage.append("     ")
+                        .append(count)
+                        .append(".")
+                        .append(taskList.get(i).toString())
+                        .append("\n");
+                count++;
+            }
+        }
+        if (count == 1) {
+            Ui.println("No task in your list matches your search.");
+            return;
+        }
+        Ui.print(listMessage.toString());
+    }
+
 }
