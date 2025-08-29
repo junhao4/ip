@@ -72,9 +72,9 @@ public class TaskList {
      * @param task The task that was added
      */
     private void add(Task task) {
-        Ui.print("     Got it. I've added this task:\n" +
-                "       " + task.toString() + "\n" +
-                "     Now you have " + taskCount() + " in the list.\n");
+        Ui.print("     Got it. I've added this task:\n"
+                + "       " + task.toString() + "\n"
+                + "     Now you have " + taskCount() + " in the list.\n");
     }
 
     private String taskCount() {
@@ -114,8 +114,8 @@ public class TaskList {
     public void mark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.mark();
-        Ui.print("      Nice! I've marked this task as done:\n" +
-                "       " + task.toString() + "\n");
+        Ui.print("      Nice! I've marked this task as done:\n"
+                + "       " + task.toString() + "\n");
     }
 
     /**
@@ -126,8 +126,8 @@ public class TaskList {
     public void unmark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.unmark();
-        Ui.print("      OK, I've marked this task as not done yet:\n" +
-                "       " + task.toString() + "\n");
+        Ui.print("      OK, I've marked this task as not done yet:\n"
+                + "       " + task.toString() + "\n");
     }
 
     /**
@@ -138,8 +138,8 @@ public class TaskList {
     public void delete(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         taskList.remove(task);
-        Ui.print("      OK, I've deleted this task:\n" +
-                "       " + task.toString() + "\n");
+        Ui.print("      OK, I've deleted this task:\n"
+                + "       " + task.toString() + "\n");
     }
 
     /**
