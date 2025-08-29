@@ -15,6 +15,13 @@ public class EventCommand extends Command {
         super(arg, tasklist);
     }
 
+    /**
+     * Adds a new event task to the <code>TaskList</code>.
+     *
+     * @throws EmptyDescriptionException if the event description is empty
+     * @throws InvalidArgumentException if the event date is not given
+     * @throws InvalidDateException if the date format is wrong
+     */
     public void execute() throws MarkExceptions {
         if (arg.isEmpty()) {
             throw new EmptyDescriptionException("event");

@@ -10,6 +10,11 @@ public class MarkCommand extends Command {
         super(arg, tasklist);
     }
 
+    /**
+     * Marks the task at the given index.
+     *
+     * @throws InvalidIndexException if the index is not a number or out of range
+     */
     public void execute() throws MarkExceptions {
         try {
             if (!taskList.isValidIndex(Integer.parseInt(arg))) {

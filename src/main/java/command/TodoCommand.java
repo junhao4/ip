@@ -10,6 +10,11 @@ public class TodoCommand extends Command {
         super(arg, tasklist);
     }
 
+    /**
+     * Adds a new todo task to the <code>TaskList</code>.
+     *
+     * @throws EmptyDescriptionException if the todo description is empty
+     */
     public void execute() throws MarkExceptions {
         if (arg.isEmpty()) {
             throw new EmptyDescriptionException("todo");

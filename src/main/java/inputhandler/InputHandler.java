@@ -6,6 +6,9 @@ import exceptions.MarkExceptions;
 import exceptions.UnknownCommandException;
 import task.TaskList;
 
+/**
+ * Parses and handles user input, converting it into a corresponding Command.
+ */
 public class InputHandler {
 
     public static Command handle(String msg, TaskList taskList) throws MarkExceptions {

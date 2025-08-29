@@ -31,12 +31,12 @@ public abstract class Task {
     }
 
     public String save() {
-        return this.name.length() +
-                "#" +
-                this.name +
-                "#" +
-                this.isCompleted +
-                "#";
+        return this.name.length()
+                + "#"
+                + this.name
+                + "#"
+                + this.isCompleted
+                + "#";
     }
 
     @Override

@@ -15,6 +15,13 @@ public class DeadlineCommand extends Command {
         super(arg, tasklist);
     }
 
+    /**
+     * Adds a new deadline task to the <code>TaskList</code>.
+     *
+     * @throws EmptyDescriptionException if the deadline description is empty
+     * @throws InvalidArgumentException if the deadline date is not given
+     * @throws InvalidDateException if the date format is wrong
+     */
     public void execute() throws MarkExceptions {
         if (arg.isEmpty()) {
             throw new EmptyDescriptionException("deadline");
