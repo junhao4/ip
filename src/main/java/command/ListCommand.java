@@ -1,5 +1,6 @@
 package command;
 
+import exceptions.InvalidIndexException;
 import exceptions.MarkExceptions;
 import task.TaskList;
 
@@ -9,7 +10,10 @@ public class ListCommand extends Command {
         super(arg, tasklist);
     }
 
-    public void execute() throws MarkExceptions {
+    /**
+     * List all the task in the <code>TaskList</code>
+     */
+    public void execute() {
         taskList.list();
     }
 }

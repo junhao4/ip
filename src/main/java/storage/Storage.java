@@ -1,5 +1,6 @@
 package storage;
 
+import exceptions.FileLoadException;
 import task.Task;
 import task.TaskList;
 import task.TodoTask;
@@ -12,9 +13,22 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+
+/**
+ * Handles reading and writing to a local file.  A <code>Storage</code>
+ * object corresponds to a specified  file
+ * e.g., <code>"./data/Mark.txt"</code>
+ */
 public class Storage {
     private String file;
 
+    /**
+     * Creates a new Storage object and ensures that
+     * both the data directory and the file exist.
+     *
+     * @param pathString The directory path where the file is
+     * @param file       The file path used to read and write tasks
+     */
     public Storage(String pathString, String file) {
         try {
             this.file = file;
@@ -32,7 +46,13 @@ public class Storage {
         }
     }
 
-
+    /**
+     * Loads tasks from the storage file into an ArrayList.
+     * Each line in the file is expected to have the following format:
+     * <code>length#isDone#taskType#(optional)dates</code>
+     *
+     * @return an ArrayList of Task loaded from the file
+     */
     public ArrayList<Task> load() {
         try {
             ArrayList<Task> taskList = new ArrayList<>();
@@ -61,10 +81,15 @@ public class Storage {
             }
             return taskList;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return new ArrayList<>();
         }
     }
 
+    /**
+     * Saves all tasks in the given TaskList to the storage file.
+     *
+     * @param taskList The TaskList to save into the file
+     */
     public void save(TaskList taskList) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));

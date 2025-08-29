@@ -2,6 +2,11 @@ package command;
 
 import task.TaskList;
 
+/**
+ * Represents all possible commands that can be performed
+ * by the program. Each <code>Enum</code> holds the constructor to their
+ * respective command.
+ */
 public enum Commands {
     MARK(MarkCommand::new),
     UNMARK(UnmarkCommand::new),
@@ -18,6 +23,14 @@ public enum Commands {
         this.cmdBuilder = cmdBuilder;
     }
 
+    /**
+     * Creates a <code>Command</code> instance for this command type with a
+     * specified <code>argument</code> and <code>taskList</code>
+     *
+     * @param arg      The arguments provided by the user
+     * @param taskList The TaskList the command will operate on
+     * @return A new Command instance
+     */
     public Command create(String arg, TaskList taskList) {
         return this.cmdBuilder.build(arg, taskList);
     }
