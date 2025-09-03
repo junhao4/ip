@@ -1,8 +1,9 @@
 package command;
 
 import exceptions.MarkExceptions;
-import task.TaskList;
 import storage.Storage;
+import task.TaskList;
+
 
 /**
  * Represents an abstract user command that can be executed.
@@ -10,8 +11,8 @@ import storage.Storage;
  * and has access to the <code>TaskList</code> it operates on.
  */
 public abstract class Command {
-    String arg;
-    TaskList taskList;
+    protected String arg;
+    protected TaskList taskList;
 
     /**
      * Creates a new <code>Command</code> with the given arguments and task list.

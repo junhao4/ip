@@ -1,7 +1,8 @@
 package inputhandler;
 
-import command.Commands;
 import command.Command;
+import command.Commands;
+
 import task.TaskList;
 import exceptions.MarkExceptions;
 import org.junit.jupiter.api.Test;

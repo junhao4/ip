@@ -22,7 +22,7 @@ public class Mark {
         Ui.intro();
 
         boolean isExit = false;
-        while(!isExit) {
+        while (!isExit) {
             String msg = ui.readCommand();
             try {
                 Command c = InputHandler.handle(msg, taskList);

@@ -8,8 +8,8 @@ public class DeadlineTask extends Task {
     private LocalDate deadline;
 
     public DeadlineTask(String name, LocalDate deadline) {
-            super(name);
-            this.deadline = deadline;
+        super(name);
+        this.deadline = deadline;
     }
 
     public DeadlineTask(String name, boolean isCompleted, LocalDate deadline) {
