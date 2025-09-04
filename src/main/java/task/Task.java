@@ -27,7 +27,7 @@ public abstract class Task {
     }
 
     public String getIsCompleted() {
-        return ((Boolean)this.isCompleted).toString();
+        return ((Boolean) this.isCompleted).toString();
     }
 
     public String save() {

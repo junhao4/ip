@@ -20,7 +20,7 @@ public class UnmarkCommand extends Command {
             if (!taskList.isValidIndex(Integer.parseInt(arg))) {
                 throw new InvalidIndexException("This task does not exist!");
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new InvalidIndexException("unmark requires an index");
         }
 

@@ -1,13 +1,17 @@
 package storage;
 
-import exceptions.FileLoadException;
+
 import task.Task;
 import task.TaskList;
 import task.TodoTask;
 import task.DeadlineTask;
 import task.EventTask;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -75,6 +79,8 @@ public class Storage {
                     break;
                 case "E":
                     taskList.add(new EventTask(name, Boolean.parseBoolean(parts[0]), LocalDate.parse(parts[2]), LocalDate.parse(parts[3])));
+                    break;
+                default:
                     break;
                 }
 

@@ -1,6 +1,5 @@
 package command;
 
-import exceptions.MarkExceptions;
 import task.TaskList;
 
 public class FindCommand extends Command {

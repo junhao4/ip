@@ -3,8 +3,8 @@ package ui;
 import java.util.Scanner;
 
 public class Ui {
+    private static final String LINE = "    ____________________________________________________________\n";
     private Scanner sc;
-    private final static String LINE = "    ____________________________________________________________\n";
 
     /**
      * Creates a new Ui object with a Scanner for reading user input.
