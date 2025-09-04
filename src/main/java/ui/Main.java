@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import mark.Mark;
 
 /**
- * A GUI for Duke using FXML.
+ * A GUI for Mark using FXML.
  */
 public class Main extends Application {
 
@@ -23,7 +23,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
-            fxmlLoader.<MainWindow>getController().setDuke(duke);  // inject the Duke instance
+            fxmlLoader.<MainWindow>getController().setMark(mark); // inject the Mark instance
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

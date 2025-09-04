@@ -49,7 +49,7 @@ test {
 }
 
 application {
-    mainClass.set("mark.Mark")
+    mainClass.set("ui.Launcher")
 }
 
 shadowJar {
