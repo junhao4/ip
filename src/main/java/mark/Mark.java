@@ -34,6 +34,18 @@ public class Mark {
         }
     }
 
+    public String getResponse(String input) {
+        try {
+            Command c = InputHandler.handle(input, taskList);
+            c.executeAndSave(storage);
+            return Ui.getMessage();
+        } catch (MarkExceptions e) {
+            Ui.println(e.getMessage());
+            return Ui.getMessage();
+        }
+
+    }
+
     public static void main(String[] args) {
         new Mark().run();
     }

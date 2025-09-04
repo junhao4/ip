@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Ui {
     private static final String LINE = "    ____________________________________________________________\n";
+    private static String message;
     private Scanner sc;
+
 
     /**
      * Creates a new Ui object with a Scanner for reading user input.
@@ -44,6 +46,11 @@ public class Ui {
         );
     }
 
+    public static String introMessage() {
+        return "Hello! I'm Mark\n"
+                + "What can I do for you?\n";
+    }
+
     /**
      * Prints the exit message when the program ends.
      */
@@ -66,6 +73,7 @@ public class Ui {
         System.out.println(
                 Ui.line("     " + msg + "\n")
         );
+        message = msg;
     }
 
     /**
@@ -77,5 +85,10 @@ public class Ui {
         System.out.println(
                 Ui.line(msg)
         );
+        message = msg;
+    }
+
+    public static String getMessage() {
+        return message;
     }
 }
