@@ -3,9 +3,10 @@ package mark;
 import command.Command;
 import exceptions.MarkExceptions;
 import inputhandler.InputHandler;
-import ui.Ui;
 import storage.Storage;
 import task.TaskList;
+import ui.Ui;
+
 
 public class Mark {
     private TaskList taskList;

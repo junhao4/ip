@@ -3,8 +3,10 @@ package inputhandler;
 import command.Command;
 import command.Commands;
 
-import task.TaskList;
 import exceptions.MarkExceptions;
+
+import task.TaskList;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
