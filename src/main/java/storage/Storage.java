@@ -44,6 +44,8 @@ public class Storage {
             if (Files.notExists(filePath)) {
                 Files.createFile(filePath);
             }
+            assert(Files.exists(path));
+            assert(Files.exists(filePath));
 
         } catch (IOException e) {
             System.out.println(e.getMessage() + "ERROR");

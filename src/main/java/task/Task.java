@@ -31,6 +31,7 @@ public abstract class Task {
     }
 
     public String save() {
+        assert(name != null);
         return this.name.length()
                 + "#"
                 + this.name

@@ -38,6 +38,7 @@ public class DeadlineCommand extends Command {
         }
 
         try {
+            assert(parts[1] != null);
             LocalDate deadline = LocalDate.parse(parts[1]);
             taskList.addDeadline(parts[0].trim(), deadline);
         } catch (DateTimeParseException e) {

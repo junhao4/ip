@@ -19,6 +19,7 @@ public class DeadlineTask extends Task {
 
     @Override
     public String save() {
+        assert(deadline != null);
         return super.save() + "D#" + this.deadline;
     }
 
