@@ -29,7 +29,6 @@ public class Mark {
             String msg = ui.readCommand();
             try {
                 Command c = InputHandler.handle(msg, taskList);
-                assert (false);
                 c.executeAndSave(storage);
                 isExit = c.isExit();
             } catch (MarkExceptions e) {
@@ -41,7 +40,9 @@ public class Mark {
     public String getResponse(String input) {
         try {
             Command c = InputHandler.handle(input, taskList);
+
             assert (c != null);
+
             c.executeAndSave(storage);
             return Ui.getMessage();
         } catch (MarkExceptions e) {

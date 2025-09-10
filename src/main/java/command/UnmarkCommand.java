@@ -17,7 +17,8 @@ public class UnmarkCommand extends Command {
      */
     public void execute() throws MarkExceptions {
         try {
-            if (!taskList.isValidIndex(Integer.parseInt(arg))) {
+            int index = Integer.parseInt(arg);
+            if (!taskList.isValidIndex(index)) {
                 throw new InvalidIndexException("This task does not exist!");
             }
         } catch (NumberFormatException e) {
