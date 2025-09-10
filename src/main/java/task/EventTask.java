@@ -22,6 +22,8 @@ public class EventTask extends Task {
 
     @Override
     public String save() {
+        assert(from != null);
+        assert(to != null);
         return super.save() + "E#" + this.from + "#" + this.to;
     }
 
