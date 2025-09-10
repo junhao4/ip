@@ -14,8 +14,10 @@ public class Mark {
     private Ui ui;
 
     public Mark() {
+        String path = "./data";
+        String file = "./data/Mark.txt";
         ui = new Ui();
-        storage = new Storage("./data", "./data/Mark.txt");
+        storage = new Storage(path, file);
         taskList = new TaskList(storage.load());
     }
 
