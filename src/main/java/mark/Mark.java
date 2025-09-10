@@ -14,8 +14,10 @@ public class Mark {
     private Ui ui;
 
     public Mark() {
+        String path = "./data";
+        String file = "./data/Mark.txt";
         ui = new Ui();
-        storage = new Storage("./data", "./data/Mark.txt");
+        storage = new Storage(path, file);
         taskList = new TaskList(storage.load());
     }
 
@@ -27,7 +29,6 @@ public class Mark {
             String msg = ui.readCommand();
             try {
                 Command c = InputHandler.handle(msg, taskList);
-                assert (false);
                 c.executeAndSave(storage);
                 isExit = c.isExit();
             } catch (MarkExceptions e) {
@@ -39,7 +40,9 @@ public class Mark {
     public String getResponse(String input) {
         try {
             Command c = InputHandler.handle(input, taskList);
+
             assert (c != null);
+
             c.executeAndSave(storage);
             return Ui.getMessage();
         } catch (MarkExceptions e) {

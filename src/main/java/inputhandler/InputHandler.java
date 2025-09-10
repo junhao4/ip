@@ -1,6 +1,7 @@
 package inputhandler;
 
 import command.Command;
+import command.CommandBuilder;
 import command.Commands;
 import exceptions.MarkExceptions;
 import exceptions.UnknownCommandException;
@@ -17,7 +18,8 @@ public class InputHandler {
         String arg = stringParts.length > 1 ? stringParts[1] : "";
 
         try {
-            return Commands.valueOf(command).create(arg, taskList);
+            Commands commands = Commands.valueOf(command);
+            return commands.create(arg, taskList);
         } catch (IllegalArgumentException e) {
             throw new UnknownCommandException();
         }
