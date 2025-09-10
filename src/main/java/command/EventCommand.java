@@ -32,6 +32,7 @@ public class EventCommand extends Command {
         }
 
         String[] parts = arg.split("/from ", 2);
+
         String[] dates = parts[1].split("/to ", 2);
 
         if (parts[0].trim().isEmpty()) {
@@ -43,6 +44,7 @@ public class EventCommand extends Command {
         }
 
         try {
+            assert(parts[1] != null);
             LocalDate from = LocalDate.parse(dates[0].trim());
             LocalDate to = LocalDate.parse(dates[1]);
             taskList.addEvent(parts[0].trim(), from, to);

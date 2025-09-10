@@ -89,6 +89,7 @@ public class Ui {
     }
 
     public static String getMessage() {
+        assert (message != null);
         return message;
     }
 }

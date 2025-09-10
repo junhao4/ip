@@ -12,6 +12,7 @@ public class ListCommand extends Command {
      * List all the task in the <code>TaskList</code>
      */
     public void execute() {
+        assert(taskList != null);
         taskList.list();
     }
 }
