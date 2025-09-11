@@ -4,6 +4,9 @@ import ui.Ui;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Stream;
 
 
 /**
@@ -176,6 +179,29 @@ public class TaskList {
             return;
         }
         Ui.print(listMessage.toString());
+    }
+
+    public void remind() {
+        LocalDate today = LocalDate.now();
+        StringBuilder listString = new StringBuilder();
+        listString.append("     Reminders for your upcoming tasks: \n");
+
+        List<Task> reminders = taskList.stream()
+                .filter(task -> task.isUpcoming(today))
+                .filter(task -> !task.getIsCompleted())
+                .sorted(Comparator.comparing(task -> ((GetDateable) task).getDate()))
+                .toList();
+
+
+        for (int i = 0; i < reminders.size(); i++) {
+            listString.append("     ")
+                    .append(i + 1)
+                    .append(".")
+                    .append(reminders.get(i).toString())
+                    .append("\n");
+        }
+
+        Ui.print(listString.toString());
     }
 
 }

@@ -16,7 +16,8 @@ public enum Commands {
     LIST(ListCommand::new),
     DELETE(DeleteCommand::new),
     BYE(ByeCommand::new),
-    FIND(FindCommand::new);
+    FIND(FindCommand::new),
+    REMIND(RemindCommand::new);
 
     private final CommandBuilder cmdBuilder;
 
