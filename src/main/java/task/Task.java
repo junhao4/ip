@@ -1,5 +1,9 @@
 package task;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
+
 public abstract class Task {
     private String name;
     private boolean isCompleted;
@@ -26,8 +30,12 @@ public abstract class Task {
         return this.name;
     }
 
-    public String getIsCompleted() {
-        return ((Boolean) this.isCompleted).toString();
+    public boolean getIsCompleted() {
+        return this.isCompleted;
+    }
+
+    public boolean isUpcoming(ChronoLocalDate today) {
+        return false;
     }
 
     public String save() {

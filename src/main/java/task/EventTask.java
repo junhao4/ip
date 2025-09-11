@@ -1,9 +1,12 @@
 package task;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
+import java.time.chrono.ChronoLocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class EventTask extends Task {
+public class EventTask extends Task implements GetDateable {
 
     private LocalDate from;
     private LocalDate to;
@@ -21,6 +24,11 @@ public class EventTask extends Task {
     }
 
     @Override
+    public LocalDate getDate() {
+        return from;
+    }
+
+    @Override
     public String save() {
         assert(from != null);
         assert(to != null);
@@ -31,5 +39,10 @@ public class EventTask extends Task {
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         return "[E]" + super.toString() + " (from: " + from.format(formatter) + " to: " + to.format(formatter) + ")";
+    }
+
+    @Override
+    public boolean isUpcoming(ChronoLocalDate today) {
+        return from.isAfter(today);
     }
 }

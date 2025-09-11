@@ -33,11 +33,18 @@ public class MainWindow extends AnchorPane {
         dialogContainer.getChildren().addAll(
                 DialogBox.getDukeDialog(Ui.introMessage(), dukeImage)
         );
+
     }
 
     /** Injects the Mark instance */
     public void setMark(Mark d) {
         mark = d;
+        String input = "remind";
+        String response = mark.getResponse(input);
+        dialogContainer.getChildren().addAll(
+                DialogBox.getDukeDialog(response, dukeImage)
+        );
+        userInput.clear();
     }
 
     /**
