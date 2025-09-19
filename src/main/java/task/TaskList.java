@@ -74,7 +74,7 @@ public class TaskList {
      * @param task The task that was added
      */
     private void add(Task task) {
-        Ui.print("Got it. I've added this task:\n"
+        Ui.printSuccess("Got it. I've added this task:\n"
                 + "" + task.toString() + "\n"
                 + "Now you have " + taskCount() + " in the list.\n");
     }
@@ -93,7 +93,7 @@ public class TaskList {
      */
     public void list() {
         if (taskList.isEmpty()) {
-            Ui.println("Your list is empty.");
+            Ui.printWarning("Your list is empty.");
             return;
         }
         StringBuilder listMessage = new StringBuilder(
@@ -104,7 +104,7 @@ public class TaskList {
                     .append(taskList.get(i).toString())
                     .append("\n");
         }
-        Ui.print(listMessage.toString());
+        Ui.printInfo(listMessage.toString());
     }
 
     /**
@@ -115,7 +115,7 @@ public class TaskList {
     public void mark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.mark();
-        Ui.print("Nice! I've marked this task as done:\n"
+        Ui.printSuccess("Nice! I've marked this task as done:\n"
                  + task.toString() + "\n");
     }
 
@@ -127,7 +127,7 @@ public class TaskList {
     public void unmark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.unmark();
-        Ui.print("OK, I've marked this task as not done yet:\n"
+        Ui.printSuccess("OK, I've marked this task as not done yet:\n"
                  + task.toString() + "\n");
     }
 
@@ -139,7 +139,7 @@ public class TaskList {
     public void delete(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         taskList.remove(task);
-        Ui.print("OK, I've deleted this task:\n"
+        Ui.printSuccess("OK, I've deleted this task:\n"
                  + task.toString() + "\n");
     }
 
@@ -171,16 +171,16 @@ public class TaskList {
             }
         }
         if (count == 1) {
-            Ui.println("No task in your list matches your search.");
+            Ui.printWarning("No task in your list matches your search.");
             return;
         }
-        Ui.print(listMessage.toString());
+        Ui.printInfo(listMessage.toString());
     }
 
     public void remind() {
         LocalDate today = LocalDate.now();
         StringBuilder listString = new StringBuilder();
-        listString.append("Reminders for your upcoming tasks: \n");
+        listString.append("Reminders for your upcoming tasks! \n");
 
         List<Task> reminders = taskList.stream()
                 .filter(task -> task.isUpcoming(today))
@@ -196,7 +196,7 @@ public class TaskList {
                     .append("\n");
         }
 
-        Ui.print(listString.toString());
+        Ui.printWarning(listString.toString());
     }
 
 }

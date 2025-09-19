@@ -38,12 +38,6 @@ public class Ui {
      * Prints the program intro message.
      */
     public static void intro() {
-        System.out.println(
-            Ui.line(
-            "     Hello! I'm Mark\n"
-                    + "     What can I do for you?\n"
-            )
-        );
     }
 
     public static String introMessage() {
@@ -55,13 +49,10 @@ public class Ui {
      * Prints the exit message when the program ends.
      */
     public static void bye() {
-        System.out.println(
-                Ui.line("Bye. Hope to see you again soon!\n")
-        );
     }
 
     public static void error() {
-        Ui.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
+        Ui.printWarning("OOPS!!! I'm sorry, but I don't know what that means :-(");
     }
 
     /**
@@ -70,9 +61,6 @@ public class Ui {
      * @param msg The message to print
      */
     public static void println(String msg) {
-        System.out.println(
-                Ui.line("     " + msg + "\n")
-        );
         message = Message.normal(msg);
     }
 
@@ -82,14 +70,23 @@ public class Ui {
      * @param msg The message to print
      */
     public static void print(String msg) {
-        System.out.println(
-                Ui.line(msg)
-        );
         message = Message.normal(msg);
     }
 
     public static void printError(String msg) {
         message = Message.error(msg);
+    }
+
+    public static void printInfo(String msg) {
+        message = Message.info(msg);
+    }
+
+    public static void printWarning(String msg) {
+        message = Message.warning(msg);
+    }
+
+    public static void printSuccess(String msg) {
+        message = Message.success(msg);
     }
 
     public static Message getMessage() {

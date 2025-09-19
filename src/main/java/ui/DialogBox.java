@@ -48,13 +48,21 @@ public class DialogBox extends HBox {
         setAlignment(Pos.TOP_LEFT);
         dialog.getStyleClass().add("reply-label");
 
+        //AI generated switch statements
         switch (type) {
         case ERROR:
-            dialog.getStyleClass().add("error");
-            System.out.println("ERROR MESSAGE");
+            dialog.getStyleClass().add("error"); // applies the 'error' class
+            break;
+        case INFO:
+            dialog.getStyleClass().add("info"); // applies the 'info' class
+            break;
+        case SUCCESS:
+            dialog.getStyleClass().add("success"); // applies the 'success' class
+            break;
+        case WARNING:
+            dialog.getStyleClass().add("warning"); // applies the 'warning' class
             break;
         default:
-            System.out.println("DEFAULT MESSAGE");
             break;
         }
     }

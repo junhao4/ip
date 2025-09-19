@@ -33,7 +33,7 @@ public class Mark {
                 c.executeAndSave(storage);
                 isExit = c.isExit();
             } catch (MarkExceptions e) {
-                Ui.println(e.getMessage());
+                Ui.printError(e.getMessage());
             }
         }
     }

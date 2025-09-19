@@ -11,6 +11,23 @@
     -fx-border-radius: 1em 1em 1em 0;
 }
 
+/*AI generated background colours*/
+.error{
+    -fx-background-color: linear-gradient(to bottom right, #ffcccc, #ff9999);  /* Light red gradient */
+}
+
+.info {
+     -fx-background-color: linear-gradient(to bottom right, #a9e5ff, #00caff);  /* Light blue gradient */
+}
+
+.warning {
+    -fx-background-color: linear-gradient(to bottom right, #fff3cd, #fbc02d);  /* Light yellow gradient */
+}
+
+.success {
+    -fx-background-color: linear-gradient(to bottom right, #95ff95, #26ea25);  /* Light green gradient */
+}
+
 #displayPicture {
     /* Shadow effect on image. */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 5, 5);

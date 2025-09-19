@@ -24,15 +24,15 @@ public class MainWindow extends AnchorPane {
 
     private Mark mark;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/User.jpg"));
+    private Image markImage = new Image(this.getClass().getResourceAsStream("/images/Mark.jpeg"));
 
     @FXML
     public void initialize() {
         Message introMessage = Message.normal(Ui.introMessage());
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
         dialogContainer.getChildren().addAll(
-                DialogBox.getMarkDialog(introMessage, dukeImage)
+                DialogBox.getMarkDialog(introMessage, markImage)
         );
 
     }
@@ -41,16 +41,15 @@ public class MainWindow extends AnchorPane {
     public void setMark(Mark d) {
         mark = d;
         String input = "remind";
-        String responseString = mark.getResponse(input).getMessage();
-        Message response = Message.normal(responseString);
+        Message response = mark.getResponse(input);
         dialogContainer.getChildren().addAll(
-                DialogBox.getMarkDialog(response, dukeImage)
+                DialogBox.getMarkDialog(response, markImage)
         );
         userInput.clear();
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
+     * Creates two dialog boxes, one echoing user input and the other containing Mark's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
     @FXML
@@ -59,9 +58,23 @@ public class MainWindow extends AnchorPane {
         Message response = mark.getResponse(input);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getMarkDialog(response, dukeImage)
+                DialogBox.getMarkDialog(response, markImage)
         );
         userInput.clear();
+    }
+
+    private void tester() {
+        Message[] a = { Message.info("INFO"),
+        Message.success("SUCCESS"),
+        Message.warning("WARNING"),
+        Message.normal("NORMAL"),
+        Message.error("ERROR") };
+
+        for (Message m : a) {
+            dialogContainer.getChildren().addAll(
+                    DialogBox.getMarkDialog(m, markImage)
+            );
+        }
     }
 }
 
