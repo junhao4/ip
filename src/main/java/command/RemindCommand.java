@@ -3,9 +3,7 @@ package command;
 import exceptions.EmptyDescriptionException;
 import exceptions.MarkExceptions;
 import task.TaskList;
-import ui.Ui;
 
-import java.time.LocalDate;
 
 public class RemindCommand extends Command {
 

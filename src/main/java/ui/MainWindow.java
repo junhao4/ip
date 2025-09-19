@@ -29,9 +29,10 @@ public class MainWindow extends AnchorPane {
 
     @FXML
     public void initialize() {
+        Message introMessage = Message.normal(Ui.introMessage());
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
         dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog(Ui.introMessage(), dukeImage)
+                DialogBox.getMarkDialog(introMessage, dukeImage)
         );
 
     }
@@ -40,9 +41,10 @@ public class MainWindow extends AnchorPane {
     public void setMark(Mark d) {
         mark = d;
         String input = "remind";
-        String response = mark.getResponse(input);
+        String responseString = mark.getResponse(input).getMessage();
+        Message response = Message.normal(responseString);
         dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog(response, dukeImage)
+                DialogBox.getMarkDialog(response, dukeImage)
         );
         userInput.clear();
     }
@@ -54,10 +56,10 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
-        String response = mark.getResponse(input);
+        Message response = mark.getResponse(input);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getDukeDialog(response, dukeImage)
+                DialogBox.getMarkDialog(response, dukeImage)
         );
         userInput.clear();
     }

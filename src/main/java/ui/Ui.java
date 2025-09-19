@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Ui {
     private static final String LINE = "    ____________________________________________________________\n";
-    private static String message;
+    private static Message message;
     private Scanner sc;
 
 
@@ -56,7 +56,7 @@ public class Ui {
      */
     public static void bye() {
         System.out.println(
-                Ui.line("     Bye. Hope to see you again soon!\n")
+                Ui.line("Bye. Hope to see you again soon!\n")
         );
     }
 
@@ -73,7 +73,7 @@ public class Ui {
         System.out.println(
                 Ui.line("     " + msg + "\n")
         );
-        message = msg;
+        message = Message.normal(msg);
     }
 
     /**
@@ -85,10 +85,14 @@ public class Ui {
         System.out.println(
                 Ui.line(msg)
         );
-        message = msg;
+        message = Message.normal(msg);
     }
 
-    public static String getMessage() {
+    public static void printError(String msg) {
+        message = Message.error(msg);
+    }
+
+    public static Message getMessage() {
         assert (message != null);
         return message;
     }
