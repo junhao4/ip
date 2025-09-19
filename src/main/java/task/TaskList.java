@@ -74,9 +74,9 @@ public class TaskList {
      * @param task The task that was added
      */
     private void add(Task task) {
-        Ui.print("     Got it. I've added this task:\n"
-                + "       " + task.toString() + "\n"
-                + "     Now you have " + taskCount() + " in the list.\n");
+        Ui.print("Got it. I've added this task:\n"
+                + "" + task.toString() + "\n"
+                + "Now you have " + taskCount() + " in the list.\n");
     }
 
     private String taskCount() {
@@ -97,10 +97,9 @@ public class TaskList {
             return;
         }
         StringBuilder listMessage = new StringBuilder(
-                "     Here are the tasks in your list:\n");
+                "Here are the tasks in your list:\n");
         for (int i = 0; i < taskList.size(); i++) {
-            listMessage.append("     ")
-                    .append(i + 1)
+            listMessage.append(i + 1)
                     .append(".")
                     .append(taskList.get(i).toString())
                     .append("\n");
@@ -116,8 +115,8 @@ public class TaskList {
     public void mark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.mark();
-        Ui.print("      Nice! I've marked this task as done:\n"
-                + "       " + task.toString() + "\n");
+        Ui.print("Nice! I've marked this task as done:\n"
+                 + task.toString() + "\n");
     }
 
     /**
@@ -128,8 +127,8 @@ public class TaskList {
     public void unmark(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         task.unmark();
-        Ui.print("      OK, I've marked this task as not done yet:\n"
-                + "       " + task.toString() + "\n");
+        Ui.print("OK, I've marked this task as not done yet:\n"
+                 + task.toString() + "\n");
     }
 
     /**
@@ -140,8 +139,8 @@ public class TaskList {
     public void delete(String indexString) {
         Task task = taskList.get(Integer.parseInt(indexString) - 1);
         taskList.remove(task);
-        Ui.print("      OK, I've deleted this task:\n"
-                + "       " + task.toString() + "\n");
+        Ui.print("OK, I've deleted this task:\n"
+                 + task.toString() + "\n");
     }
 
     /**
@@ -160,12 +159,11 @@ public class TaskList {
 
     public void find(String string) {
         StringBuilder listMessage = new StringBuilder(
-                "     Here are the matching tasks in your list:\n");
+                "Here are the matching tasks in your list:\n");
         int count = 1;
         for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).toString().contains(string)) {
-                listMessage.append("     ")
-                        .append(count)
+                listMessage.append(count)
                         .append(".")
                         .append(taskList.get(i).toString())
                         .append("\n");
@@ -182,7 +180,7 @@ public class TaskList {
     public void remind() {
         LocalDate today = LocalDate.now();
         StringBuilder listString = new StringBuilder();
-        listString.append("     Reminders for your upcoming tasks: \n");
+        listString.append("Reminders for your upcoming tasks: \n");
 
         List<Task> reminders = taskList.stream()
                 .filter(task -> task.isUpcoming(today))
@@ -192,8 +190,7 @@ public class TaskList {
 
 
         for (int i = 0; i < reminders.size(); i++) {
-            listString.append("     ")
-                    .append(i + 1)
+            listString.append(i + 1)
                     .append(".")
                     .append(reminders.get(i).toString())
                     .append("\n");
