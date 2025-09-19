@@ -180,13 +180,21 @@ public class TaskList {
     public void remind() {
         LocalDate today = LocalDate.now();
         StringBuilder listString = new StringBuilder();
-        listString.append("Reminders for your upcoming tasks! \n");
+
 
         List<Task> reminders = taskList.stream()
                 .filter(task -> task.isUpcoming(today))
                 .filter(task -> !task.getIsCompleted())
                 .sorted(Comparator.comparing(task -> ((GetDateable) task).getDate()))
                 .toList();
+
+
+        if (reminders.isEmpty()) {
+            Ui.printSuccess("You have no upcoming tasks :)");
+            return;
+        }
+
+        listString.append("Reminders for your upcoming tasks! \n");
 
 
         for (int i = 0; i < reminders.size(); i++) {
