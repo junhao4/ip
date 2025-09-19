@@ -41,20 +41,39 @@ public class DialogBox extends HBox {
     /**
      * Flips the dialog box such that the ImageView is on the left and text on the right.
      */
-    private void flip() {
+    private void flip(Message.Type type) {
         ObservableList<Node> tmp = FXCollections.observableArrayList(this.getChildren());
         Collections.reverse(tmp);
         getChildren().setAll(tmp);
         setAlignment(Pos.TOP_LEFT);
+        dialog.getStyleClass().add("reply-label");
+
+        //AI generated switch statements
+        switch (type) {
+        case ERROR:
+            dialog.getStyleClass().add("error"); // applies the 'error' class
+            break;
+        case INFO:
+            dialog.getStyleClass().add("info"); // applies the 'info' class
+            break;
+        case SUCCESS:
+            dialog.getStyleClass().add("success"); // applies the 'success' class
+            break;
+        case WARNING:
+            dialog.getStyleClass().add("warning"); // applies the 'warning' class
+            break;
+        default:
+            break;
+        }
     }
 
     public static DialogBox getUserDialog(String text, Image img) {
         return new DialogBox(text, img);
     }
 
-    public static DialogBox getDukeDialog(String text, Image img) {
-        var db = new DialogBox(text, img);
-        db.flip();
+    public static DialogBox getMarkDialog(Message text, Image img) {
+        var db = new DialogBox(text.getMessage(), img);
+        db.flip(text.getType());
         return db;
     }
 }

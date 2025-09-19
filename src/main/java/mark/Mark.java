@@ -5,6 +5,7 @@ import exceptions.MarkExceptions;
 import inputhandler.InputHandler;
 import storage.Storage;
 import task.TaskList;
+import ui.Message;
 import ui.Ui;
 
 
@@ -32,12 +33,12 @@ public class Mark {
                 c.executeAndSave(storage);
                 isExit = c.isExit();
             } catch (MarkExceptions e) {
-                Ui.println(e.getMessage());
+                Ui.printError(e.getMessage());
             }
         }
     }
 
-    public String getResponse(String input) {
+    public Message getResponse(String input) {
         try {
             Command c = InputHandler.handle(input, taskList);
 
@@ -46,7 +47,7 @@ public class Mark {
             c.executeAndSave(storage);
             return Ui.getMessage();
         } catch (MarkExceptions e) {
-            Ui.println(e.getMessage());
+            Ui.printError(e.getMessage());
             return Ui.getMessage();
         }
 
