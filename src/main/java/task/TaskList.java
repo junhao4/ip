@@ -100,7 +100,7 @@ public class TaskList {
                 "Here are the tasks in your list:\n");
         for (int i = 0; i < taskList.size(); i++) {
             listMessage.append(i + 1)
-                    .append(".")
+                    .append(". ")
                     .append(taskList.get(i).toString())
                     .append("\n");
         }
@@ -164,7 +164,7 @@ public class TaskList {
         for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).toString().contains(string)) {
                 listMessage.append(count)
-                        .append(".")
+                        .append(". ")
                         .append(taskList.get(i).toString())
                         .append("\n");
                 count++;
@@ -199,7 +199,7 @@ public class TaskList {
 
         for (int i = 0; i < reminders.size(); i++) {
             listString.append(i + 1)
-                    .append(".")
+                    .append(". ")
                     .append(reminders.get(i).toString())
                     .append("\n");
         }
