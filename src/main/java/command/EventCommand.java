@@ -1,16 +1,22 @@
 package command;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 import exceptions.EmptyDescriptionException;
 import exceptions.InvalidArgumentException;
 import exceptions.InvalidDateException;
 import exceptions.MarkExceptions;
 import task.TaskList;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-
 public class EventCommand extends Command {
 
+    /**
+     * Creates a new EventCommand.
+     *
+     * @param arg the user input (description and event dates)
+     * @param tasklist the task list to which the event task will be added
+     */
     public EventCommand(String arg, TaskList tasklist) {
         super(arg, tasklist);
     }

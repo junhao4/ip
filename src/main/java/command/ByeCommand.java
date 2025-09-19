@@ -1,6 +1,5 @@
 package command;
 
-import exceptions.MarkExceptions;
 import task.TaskList;
 import ui.Ui;
 
@@ -10,7 +9,10 @@ public class ByeCommand extends Command {
         super(arg, tasklist);
     }
 
-    public void execute() throws MarkExceptions {
+    /**
+     * Exits the program
+     */
+    public void execute() {
         Ui.bye();
         System.exit(0);
     }

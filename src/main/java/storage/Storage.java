@@ -1,12 +1,5 @@
 package storage;
 
-
-import task.DeadlineTask;
-import task.EventTask;
-import task.Task;
-import task.TaskList;
-import task.TodoTask;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -16,6 +9,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import task.DeadlineTask;
+import task.EventTask;
+import task.Task;
+import task.TaskList;
+import task.TodoTask;
 
 
 /**
@@ -77,10 +76,12 @@ public class Storage {
                     taskList.add(new TodoTask(name, Boolean.parseBoolean(parts[0])));
                     break;
                 case "D":
-                    taskList.add(new DeadlineTask(name, Boolean.parseBoolean(parts[0]), LocalDate.parse(parts[2])));
+                    taskList.add(new DeadlineTask(name, Boolean.parseBoolean(parts[0]),
+                            LocalDate.parse(parts[2])));
                     break;
                 case "E":
-                    taskList.add(new EventTask(name, Boolean.parseBoolean(parts[0]), LocalDate.parse(parts[2]), LocalDate.parse(parts[3])));
+                    taskList.add(new EventTask(name, Boolean.parseBoolean(parts[0]),
+                            LocalDate.parse(parts[2]), LocalDate.parse(parts[3])));
                     break;
                 default:
                     break;

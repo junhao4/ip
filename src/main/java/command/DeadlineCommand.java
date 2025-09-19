@@ -1,16 +1,22 @@
 package command;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 import exceptions.EmptyDescriptionException;
 import exceptions.InvalidArgumentException;
 import exceptions.InvalidDateException;
 import exceptions.MarkExceptions;
 import task.TaskList;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-
 public class DeadlineCommand extends Command {
 
+    /**
+     * Creates a new DeadlineCommand.
+     *
+     * @param arg the user input (description and deadline date)
+     * @param tasklist the task list to which the deadline task will be added
+     */
     public DeadlineCommand(String arg, TaskList tasklist) {
         super(arg, tasklist);
     }

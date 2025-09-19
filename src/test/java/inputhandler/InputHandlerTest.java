@@ -1,15 +1,14 @@
 package inputhandler;
 
-import command.Command;
-import command.Commands;
-
-import exceptions.MarkExceptions;
-
-import task.TaskList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import command.Command;
+import command.Commands;
+import exceptions.MarkExceptions;
+import task.TaskList;
+
 
 public class InputHandlerTest {
 

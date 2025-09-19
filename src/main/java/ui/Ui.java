@@ -49,46 +49,48 @@ public class Ui {
      * Prints the exit message when the program ends.
      */
     public static void bye() {
-    }
-
-    public static void error() {
-        Ui.printWarning("OOPS!!! I'm sorry, but I don't know what that means :-(");
+        printSuccess("Bye!");
     }
 
     /**
-     * Prints a formatted message with a newline after it.
+     * Prints a message of type error
      *
      * @param msg The message to print
      */
-    public static void println(String msg) {
-        message = Message.normal(msg);
-    }
-
-    /**
-     * Prints a message with surrounding lines.
-     *
-     * @param msg The message to print
-     */
-    public static void print(String msg) {
-        message = Message.normal(msg);
-    }
-
     public static void printError(String msg) {
         message = Message.error(msg);
     }
 
+    /**
+     * Prints a message of type info
+     *
+     * @param msg The message to print
+     */
     public static void printInfo(String msg) {
         message = Message.info(msg);
     }
 
+    /**
+     * Prints a message of type warning
+     *
+     * @param msg The message to print
+     */
     public static void printWarning(String msg) {
         message = Message.warning(msg);
     }
 
+    /**
+     * Prints a message of type success
+     *
+     * @param msg The message to print
+     */
     public static void printSuccess(String msg) {
         message = Message.success(msg);
     }
 
+    /**
+     * Gets the latest message
+     */
     public static Message getMessage() {
         assert (message != null);
         return message;

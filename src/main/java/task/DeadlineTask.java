@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class DeadlineTask extends Task implements GetDateable{
+public class DeadlineTask extends Task implements GetDateable {
 
     private LocalDate deadline;
 

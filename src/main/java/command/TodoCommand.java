@@ -6,6 +6,12 @@ import task.TaskList;
 
 public class TodoCommand extends Command {
 
+    /**
+     * Creates a new TodoCommand.
+     *
+     * @param arg the user input (description)
+     * @param tasklist the task list to which the todo task will be added
+     */
     public TodoCommand(String arg, TaskList tasklist) {
         super(arg, tasklist);
     }
