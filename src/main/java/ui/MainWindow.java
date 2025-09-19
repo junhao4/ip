@@ -63,18 +63,5 @@ public class MainWindow extends AnchorPane {
         userInput.clear();
     }
 
-    private void tester() {
-        Message[] a = { Message.info("INFO"),
-        Message.success("SUCCESS"),
-        Message.warning("WARNING"),
-        Message.normal("NORMAL"),
-        Message.error("ERROR") };
-
-        for (Message m : a) {
-            dialogContainer.getChildren().addAll(
-                    DialogBox.getMarkDialog(m, markImage)
-            );
-        }
-    }
 }
 

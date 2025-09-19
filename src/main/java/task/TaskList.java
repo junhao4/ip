@@ -157,6 +157,11 @@ public class TaskList {
         return str.toString();
     }
 
+    /**
+     * Prints the tasks that match the description provided.
+     *
+     * @param string the description of the task to search for
+     */
     public void find(String string) {
         StringBuilder listMessage = new StringBuilder(
                 "Here are the matching tasks in your list:\n");
@@ -177,6 +182,9 @@ public class TaskList {
         Ui.printInfo(listMessage.toString());
     }
 
+    /**
+     * Prints upcoming tasks that are not marked completed
+     */
     public void remind() {
         LocalDate today = LocalDate.now();
         StringBuilder listString = new StringBuilder();

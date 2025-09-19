@@ -39,7 +39,8 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Flips the dialog box such that the ImageView is on the left and text on the right.
+     * Flips the dialog box such that the ImageView is on the left and text on the right
+     * and applys the correct message type.
      */
     private void flip(Message.Type type) {
         ObservableList<Node> tmp = FXCollections.observableArrayList(this.getChildren());
@@ -48,6 +49,14 @@ public class DialogBox extends HBox {
         setAlignment(Pos.TOP_LEFT);
         dialog.getStyleClass().add("reply-label");
 
+        applyType(type);
+
+    }
+
+    /**
+     * Adds the respective css class to the message type.
+     */
+    private void applyType(Message.Type type) {
         //AI generated switch statements
         switch (type) {
         case ERROR:

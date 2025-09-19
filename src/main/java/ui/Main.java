@@ -22,10 +22,12 @@ public class Main extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/MainWindow.fxml"));
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
+
             stage.setScene(scene);
             stage.setMinHeight(620);
             stage.setMinWidth(417);
             stage.setTitle("Mark");
+
             fxmlLoader.<MainWindow>getController().setMark(mark); // inject the Mark instance
             stage.show();
         } catch (IOException e) {
